@@ -17,7 +17,14 @@ describe('readme-badger', function() {
     var after = fs.readFileSync(__dirname + '/examples/markdown-after.md', { encoding: 'utf8' });
 
     var result = badger.addBadge(before, 'md', imageUrl, linkUrl, altText);
+    assert.equal(result, after);
+  });
 
+  it('inserts into markdown with badges', function() {
+    var before = fs.readFileSync(__dirname + '/examples/markdown-before-with-badge.md', { encoding: 'utf8' });
+    var after = fs.readFileSync(__dirname + '/examples/markdown-after-with-badge.md', { encoding: 'utf8' });
+
+    var result = badger.addBadge(before, 'md', imageUrl, linkUrl, altText);
     assert.equal(result, after);
   });
 
